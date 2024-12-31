@@ -1,5 +1,7 @@
 # Spam Message Classifier with Web Interface
 
+![alt text](image.png)
+
 ## Overview
 
 This project implements a **Spam Message Classifier** using Python, machine learning, and a **Flask** web application. The classifier is designed to classify messages as **spam** or **ham** (non-spam) based on their content. It uses a pre-trained machine learning model (Naive Bayes) to categorize user input and provides instant feedback through a simple web interface.

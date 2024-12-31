@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam or Ham Message Classifier</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ3QJZn8w9E4P4kQexjX9h6Vyo2xz/J7CzGoCkO5a7WmUqz3zR4mLwXax9Xp" crossorigin="anonymous">
+    <!-- Custom Styles (Optional) -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .card {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .result.spam {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center bg-primary text-white">
+                    <h3>Spam or Ham Message Classifier</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/predict" method="POST">
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Enter your message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Check if Spam or Ham</button>
+                    </form>
+
+                    {% if prediction %}
+                        <div class="mt-4">
+                            <p class="result {% if prediction == 'Spam' %}spam{% else %}ham{% endif %}">
+                                <strong>Result:</strong> {{ prediction }}
+                            </p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybFf0xXhR7a3vcV77lIB6b5z5cOVl6kDFTfJ6CkC6SOU+R6Xx7" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-cd7f23dfbd8a4c4cb4e2b2071fd0c64839a62c6cf63eb3ca5315644502f8da89" crossorigin="anonymous"></script>
+
+</body>
+</html>
